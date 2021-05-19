@@ -18,17 +18,17 @@ For example, with ~1,000 upvotes, the top reply to example #4 was “Don’t do 
 Your challenge is to build EmpathyBoost4000, a machine learning-based bot for Reddit. The bot will detect “cries for help,” provide an immediate empathic response to OP, and ‘nudge’ the authors of future replies to empathize with OP before sharing any advice. To gather continuous feedback, the bot will ask Reddit viewers to upvote or downvote the bot’s reply based on relevance. This feedback will be incorporated to improve the accuracy over time. Apply the bot to the CS Career Questions subreddit.
 Recommended Path
 
-- Interact with the Reddit API so you can read and write posts
--- Basic version: Use this tutorial or similar to get started. Extra: set this so that it runs every 5 minutes (this might occasionally miss a post, and will sometimes not be the first to respond).
--- Advanced version: Fork this repo and customize the bot for this use case.
-Gather the text for a bunch of posts that you think are ‘cries for help’ and a bunch that are not. Manually label posts as containing ‘cries for help.’
--- Basic version: do a keyword search on Reddit, build an HTML parser to extract the text from the post page.
--- Intermediate version: Use the Reddit API to capture the last year’s worth of posts. Use keyword search, regex to search for ‘cries for help.’
-- Split the posts you labeled as ‘cries for help’ into sentences. Manually label specific sentences as ‘cries for help’ or not. Next, you’ll label many of the other sentences in the posts you’ve captured. To save time, rank order sentences based on sentence embeddings. (Assess the similarity between sentences labeled as ‘cries for help’ and all unlabeled sentences. Sort so that unlabeled sentences that are semantically similar to a ‘cry for help’ sentence are at the top.) Stop when you believe you have labeled almost all the ‘cry for help’ sentences in the dataset.
-- Explore the data. Determine how you will classify new sentences as ‘cries for help’ or not. Pay special attention to the % of false positives, since the Reddit community will not take kindly to spam.
-- Configure the bot you created in step 1 to read new posts, split posts (title and body) into sentences, and assess if any sentence looks like a ‘cry for help.’ If at least one sentence looks like a ‘cry for help,’ send a bot message.
-- Set up a system to review the upvotes / downvotes on your bot messages after 72 hours. Add sentences that were predicted to be ‘cries for help’ to your labeled dataset as either ‘cries for help’ or not based on community upvote / downvote feedback.
-- Rejoice! You’ve now built an automod that will improve people’s lives, and improve in accuracy over time with no additional effort from you!
+1. Interact with the Reddit API so you can read and write posts
+  * Basic version: Use this tutorial or similar to get started. Extra: set this so that it runs every 5 minutes (this might occasionally miss a post, and will sometimes not be the first to respond).
+  * Advanced version: Fork this repo and customize the bot for this use case.
+2. Gather the text for a bunch of posts that you think are ‘cries for help’ and a bunch that are not. Manually label posts as containing ‘cries for help.’
+  * Basic version: do a keyword search on Reddit, build an HTML parser to extract the text from the post page.
+  * Intermediate version: Use the Reddit API to capture the last year’s worth of posts. Use keyword search, regex to search for ‘cries for help.’
+3. Split the posts you labeled as ‘cries for help’ into sentences. Manually label specific sentences as ‘cries for help’ or not. Next, you’ll label many of the other sentences in the posts you’ve captured. To save time, rank order sentences based on sentence embeddings. (Assess the similarity between sentences labeled as ‘cries for help’ and all unlabeled sentences. Sort so that unlabeled sentences that are semantically similar to a ‘cry for help’ sentence are at the top.) Stop when you believe you have labeled almost all the ‘cry for help’ sentences in the dataset.
+4. Explore the data. Determine how you will classify new sentences as ‘cries for help’ or not. Pay special attention to the % of false positives, since the Reddit community will not take kindly to spam.
+5. Configure the bot you created in step 1 to read new posts, split posts (title and body) into sentences, and assess if any sentence looks like a ‘cry for help.’ If at least one sentence looks like a ‘cry for help,’ send a bot message.
+6. Set up a system to review the upvotes / downvotes on your bot messages after 72 hours. Add sentences that were predicted to be ‘cries for help’ to your labeled dataset as either ‘cries for help’ or not based on community upvote / downvote feedback.
+7. Rejoice! You’ve now built an automod that will improve people’s lives, and improve in accuracy over time with no additional effort from you!
 
 ## Future work
 If we finish everything within the time limit, and want to keep going, here are some additional ideas:
